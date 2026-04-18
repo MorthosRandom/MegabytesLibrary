@@ -1,5 +1,6 @@
-#include <MegabytesCSV.h>
+#include "MegabytesCSV.h"
+#include <iostream>
 
-int returnOne(){
-    return 1;
+void DebugPrintCSV(){
+    std::cout << "This is where I would print the csv" << std::endl;
 }

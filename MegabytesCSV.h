@@ -1,8 +1,9 @@
 #ifndef MEGABYTESCSV
 #define MEGABYTESCSV
 
-int returnOne();
 
+
+void DebugPrintCSV();
 
 
 #endif
