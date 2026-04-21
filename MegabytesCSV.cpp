@@ -6,16 +6,9 @@
 
 
 
-class CsvReader{
-public:
-    std::vector<std::vector<std::string>>* sheet;
-    CsvReader() {
-        std::cout << "blank csv reader created" << std::endl;
-    }
-    CsvReader(std::string filename){
-        //sheet = 
-    }
-};
+
+
+
 
 
 //https://www.youtube.com/watch?v=fhzKLBZJC3w&list=RDfhzKLBZJC3w&start_radio=1&pp=oAcB
