@@ -4,6 +4,8 @@
 #include <regex>
 #include <unordered_map>
 
+#include "MegabytesLinkedLists.cpp"
+
 #ifndef MEGABYTESCSV
 #define MEGABYTESCSV
 
@@ -16,10 +18,23 @@
 void DebugPrintCSV();
 
 
+class CSVCell{
+public:
+    std::string val;
+    CSVCell(std::string value): val(value){}
+};
+
+
+
+
+
+
 class CSVSheet{
 public:
     int width;
-    std::vector<std::vector<std::string>*>* sheet;
+
+    LinkedList<std::vector<CSVCell>*> list;
+    std::vector<std::vector<std::string>*>* sheet;  
     int rowCursor = 0;
     std::unordered_map<std::string, int>* map;
     ~CSVSheet(){
