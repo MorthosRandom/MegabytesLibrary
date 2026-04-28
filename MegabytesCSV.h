@@ -3,8 +3,9 @@
 #include <vector>
 #include <regex>
 #include <unordered_map>
-
 #include "MegabytesLinkedLists.cpp"
+
+
 
 #ifndef MEGABYTESCSV
 #define MEGABYTESCSV
@@ -18,12 +19,19 @@
 void DebugPrintCSV();
 
 
-class CSVCell{
+class Cell{
 public:
-    std::string val;
-    CSVCell(std::string value): val(value){}
+    std::string contents;
+    Cell(){
+        contents = std::string();
+    }
+    void operator=(std::string value){
+        contents = value;
+    }
+    bool operator==(std::string value){
+        return contents == value;
+    }
 };
-
 
 
 
@@ -33,7 +41,6 @@ class CSVSheet{
 public:
     int width;
 
-    LinkedList<std::vector<CSVCell>*> list;
     std::vector<std::vector<std::string>*>* sheet;  
     int rowCursor = 0;
     std::unordered_map<std::string, int>* map;
@@ -43,9 +50,10 @@ public:
         map = nullptr;
         sheet = nullptr;
     }
+
     CSVSheet() {
         sheet = new std::vector<std::vector<std::string>*>();
-        std::cout << "blank csv reader created" << std::endl;
+        std::cout << "blank csv sheet created" << std::endl;
     }
     CSVSheet(std::string filename){
         map = new std::unordered_map<std::string, int>();
@@ -81,8 +89,13 @@ public:
         
     }
 
+
+
     void next(){
         rowCursor+=1;
+        if(rowCursor > sheet->size()){
+            rowCursor = 0;
+        }
     }
     void printRow(int num){
         std::vector<std::string>* row = sheet->at(num);
